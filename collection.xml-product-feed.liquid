@@ -14,7 +14,7 @@
  {% assign Gender = product.metafields.google.gender %}
  {% assign AgeGroup = product.metafields.google.age_group %}
  {% for variant in product.variants %}
-
+ {% assign Size = variant.size %}
  {% for option in product.options %}
  {% if option == 'Color' %}{% capture Color %}{{ variant.options[forloop.index0] }}{% endcapture %}
  {% elsif option == 'Size' %}{% capture Size %}{{ variant.options[forloop.index0] }}{% endcapture %}
@@ -31,7 +31,7 @@
 <g:price>{{ variant.price | money_without_currency }} {{ shop.currency }}</g:price>
 <g:availability>{% if variant.available %}in stock{% else %}out of stock{% endif %}</g:availability>
 <g:image_link>{{ variant.image.src | product_img_url: 'grande' }}</g:image_link>
-<g:gtin/>
+<g:gtin>{{ variant.barcode }}</g:gtin>
 <g:brand>{{ product.vendor }}</g:brand>
 <g:mpn>{{ variant.sku }}</g:mpn>
 <g:product_type>{{ product.type }}</g:product_type>
