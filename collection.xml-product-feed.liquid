@@ -11,8 +11,8 @@
 <description>{{ collection.description | strip_html }}</description>
 {% for product in collection.products %}
  {% assign GoogleProductCategory = product.metafields.google.google_product_type %}
- {% assign Gender = product.metafields.google.gender %}
- {% assign AgeGroup = product.metafields.google.age_group %}
+ {% assign Gender = products.metafields.google.gender %}
+ {% assign AgeGroup = products.metafields.google.age_group %}
  {% for variant in product.variants %}
 
  {% for option in product.options %}
